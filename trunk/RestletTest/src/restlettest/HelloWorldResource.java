@@ -1,7 +1,14 @@
 package restlettest;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.restlet.data.CharacterSet;
+import org.restlet.data.Status;
+import org.restlet.representation.Representation;
 import org.restlet.resource.Get;
+import org.restlet.resource.ResourceException;
 import org.restlet.resource.ServerResource;
+import org.restlet.ext.json.JsonRepresentation;
 
 /**
  * Resource which has only one representation.
@@ -17,8 +24,19 @@ public class HelloWorldResource extends ServerResource {
 	}
 	
     @Get
-    public String represent() {
-        return "User: " + this.user;
+    public Representation represent() throws ResourceException {
+        JSONObject json = new JSONObject();
+        
+        try {
+        	json.put("user", this.user);
+        } catch (JSONException e) {
+        	throw new ResourceException(Status.SERVER_ERROR_INTERNAL);
+        }
+        
+        JsonRepresentation jr = new JsonRepresentation(json);
+        jr.setCharacterSet(CharacterSet.UTF_8);
+        
+        return jr;
     }
 
 }
