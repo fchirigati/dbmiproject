@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * DataSender sends the meteorological information to the server through
- * Http post.
+ * Http POST.
  * @author Fernando Seabra
  */
 public class DataSender {
@@ -45,10 +45,37 @@ public class DataSender {
 				e.printStackTrace();
 			}
 		}
-		
+	}
+	
+	/**
+	 * Sends the data to the server. 
+	 */
+	public void sendData() throws IOException {
 		System.out.println("Sending data...");
 		System.out.println("Data: " + data);
-		sendData();
+		try {
+			URL url = new URL("http://localhost:8888/store");
+			URLConnection connection = url.openConnection();
+			connection.setDoOutput(true);
+			
+			OutputStreamWriter wr = new OutputStreamWriter(
+					connection.getOutputStream());
+			wr.write(data);
+			wr.flush();
+			
+			BufferedReader rd = new BufferedReader(new InputStreamReader(
+					connection.getInputStream()));
+		    String line;
+		    while ((line = rd.readLine()) != null) {
+		        System.out.println("Response: " + line + "\n");
+		    }
+		    rd.close();
+		    
+		    wr.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -71,34 +98,6 @@ public class DataSender {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
-		}
-	}
-	
-	/**
-	 * Sends the data to the server. 
-	 */
-	private void sendData() throws IOException {
-		try {
-			URL url = new URL("http://localhost:8888/store");
-			URLConnection connection = url.openConnection();
-			connection.setDoOutput(true);
-			
-			OutputStreamWriter wr = new OutputStreamWriter(
-					connection.getOutputStream());
-			wr.write(data);
-			wr.flush();
-			
-			BufferedReader rd = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-		    String line;
-		    while ((line = rd.readLine()) != null) {
-		        System.out.println("Response: " + line + "\n");
-		    }
-		    rd.close();
-		    
-		    wr.close();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 }

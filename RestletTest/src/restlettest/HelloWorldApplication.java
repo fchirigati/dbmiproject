@@ -18,6 +18,7 @@ public class HelloWorldApplication extends Application {
         // Defines only one route
         router.attach("/users/{user}", HelloWorldResource.class);
         router.attach("/store", OtherResource.class);
+        router.attach("/airports", AirportsResource.class);
 
         return router;
     }
