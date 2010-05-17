@@ -25,6 +25,7 @@ public class HelloWorldResource extends ServerResource {
 	
     @Get
     public Representation represent() throws ResourceException {
+    	System.out.println("GET");
         JSONObject json = new JSONObject();
         
         try {
@@ -38,5 +39,16 @@ public class HelloWorldResource extends ServerResource {
         
         return jr;
     }
-
+   /* public String represent() {
+    	return "User: " + this.user;
+    }*/
+    
+	/*@Post
+    public void store() {
+		System.out.println("POST");
+    	Map<String,Object> map = getRequest().getAttributes();
+    	System.out.println(map.values());
+    	System.out.println(map.get("SGBL"));
+    	System.out.println(map.keySet());
+    }*/
 }
