@@ -25,14 +25,13 @@ public class MetInfResource extends ServerResource {
         
         try {
         	addInformation(informationObject, country, airport);
+        	
+        	return getRepresentation(informationObject);
         } catch (JSONException e) {
-        	informationObject.put("error", e.getCause());
+        	informationObject.put("error", e.getMessage());
+        	
+        	return getRepresentation(informationObject);
         }
-        
-        JsonRepresentation jr = new JsonRepresentation(informationObject);
-        jr.setCharacterSet(CharacterSet.UTF_8);
-        
-        return jr;
 	}
 	
 	private void addInformation(JSONObject jsonObject, String country,
@@ -41,5 +40,12 @@ public class MetInfResource extends ServerResource {
 		// TODO code: get information from the database
 		jsonObject.put("weather", "great");
 		jsonObject.put("temperature", "awesome");
+	}
+	
+	private Representation getRepresentation(JSONObject jsonObject) {
+		JsonRepresentation jr = new JsonRepresentation(jsonObject);
+        jr.setCharacterSet(CharacterSet.UTF_8);
+
+        return jr;
 	}
 }
