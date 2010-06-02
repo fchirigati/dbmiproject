@@ -1,8 +1,7 @@
 package resources;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.restlet.data.CharacterSet;
 import org.restlet.ext.json.JsonRepresentation;
 import org.restlet.representation.Representation;
@@ -12,21 +11,20 @@ import org.restlet.resource.ServerResource;
 public class AllAirportsResource extends ServerResource {
 	
 	@Get
-	public Representation getAllAirports() throws JSONException {
+	public Representation getAllAirports() throws Exception {
 		JSONObject airportsObject = new JSONObject();
 		JSONArray airportsArray = new JSONArray();
         
         try {
         	addAirports(airportsArray);
         	airportsObject.put("airports", airportsArray);
-        } catch (JSONException e) {
-        	airportsObject.put("error", e.getCause());
+        	
+        	return getRepresentation(airportsObject);
+        } catch (Exception e) {
+        	airportsObject.put("error", e.getMessage());
+        	
+        	return getRepresentation(airportsObject);
         }
-        
-        JsonRepresentation jr = new JsonRepresentation(airportsObject);
-        jr.setCharacterSet(CharacterSet.UTF_8);
-
-        return jr;
 	}
 	
 	private void addAirports(JSONArray jsonArray) {
@@ -41,5 +39,12 @@ public class AllAirportsResource extends ServerResource {
 		for (int i = 0; i < airports.length; i++) {
 			jsonArray.put(airports[i]);
 		}
+	}
+	
+	private Representation getRepresentation(JSONObject jsonObject) {
+		JsonRepresentation jr = new JsonRepresentation(jsonObject);
+        jr.setCharacterSet(CharacterSet.UTF_8);
+
+        return jr;
 	}
 }

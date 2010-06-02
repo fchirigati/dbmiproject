@@ -22,20 +22,26 @@ public class StoreResource extends ServerResource {
 	    	
 	    	response.put("success", true);
 	    	response.put("error", "");
+	    	
+	    	return getRepresentation(response);
 		} catch (Exception e) {
 			response.put("success", false);
-			response.put("error", e.getCause());
+			response.put("error", e.getMessage());
+			
+			return getRepresentation(response);
 		}
-    	
-		JsonRepresentation jr = new JsonRepresentation(response);
-        jr.setCharacterSet(CharacterSet.UTF_8);
-		
-    	return jr;
 	}
 	
 	private void storeInformation(String[] information) {
 		// TODO code: pass the metar string to the decoder
 		
 		System.out.println(information);
+	}
+	
+	private Representation getRepresentation(JSONObject jsonObject) {
+		JsonRepresentation jr = new JsonRepresentation(jsonObject);
+        jr.setCharacterSet(CharacterSet.UTF_8);
+
+        return jr;
 	}
 }
