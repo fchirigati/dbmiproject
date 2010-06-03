@@ -35,14 +35,14 @@ protected abstract class Parser {
     def pullParser: PullParser =
         PullParser {
             input: input
-            documentType: PullParser.XML
+            documentType: PullParser.JSON
             onEvent: onEvent
         }
 
     /**
     * Parses the input and returns the result.
     */
-    protected function parse(): String[] {
+    protected function parse(): Sequence {
         pullParser.parse();
         result
     }

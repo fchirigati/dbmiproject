@@ -8,6 +8,7 @@ package webinterface.http;
 
 import java.io.InputStream;
 import javafx.data.pull.Event;
+import javafx.data.pull.PullParser;
 
 /**
  * The HttpRequester for getting the available countries.
@@ -22,7 +23,8 @@ public class CountryHttpRequester extends HttpRequester {
             CountryParser {
                 input: input
             }
-        result = parser.parse()
+        result = parser.parse();
+        input.close()
     }
 }
 
@@ -36,6 +38,13 @@ protected class CountryParser extends Parser {
     * The function onEvent.
     */
     protected override function onEvent(event: Event) {
-
+        if (event.type == PullParser.END_VALUE) {
+            if (event.level == 0) {
+                var countryResult: String[];
+                insert event.name into countryResult;
+                insert event.text into countryResult;
+                insert countryResult into result;
+            }
+        }
     }
 }

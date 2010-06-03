@@ -18,16 +18,21 @@ import com.sun.javafx.runtime.sequence.Sequence;
 protected abstract class HttpRequester {
 
     /**
+    * Target location for the HttpRequest.
+    */
+    public var location: String;
+
+    /**
+    * Function called when the HTTP operation is finished.
+    */
+    public var onDone: function(): Void;
+
+    /**
     * The HTTP response, after parsing.
     * By default, it is a Sequence.
     * This parameter MUST be modified in function onInput.
     */
     protected var result: Sequence;
-
-    /**
-    * Target location for the HttpRequest.
-    */
-    protected var location: String;
 
     /**
     * Boolean that indicates that the HTTP operation has started.
@@ -49,9 +54,13 @@ protected abstract class HttpRequester {
             onStarted: function() {
                 started = true
             }
+            onRead: function(bytes: Long) {
+                println("Bytes read: {bytes}");
+            }
             onInput: onInput
             onDone: function() {
-                finished = true
+                finished = true;
+                onDone()
             }
         }
 

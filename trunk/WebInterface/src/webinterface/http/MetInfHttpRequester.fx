@@ -22,7 +22,8 @@ public class MetInfHttpRequester extends HttpRequester {
             MetInfParser {
                 input: input
             }
-        result = parser.parse()
+        result = parser.parse();
+        input.close()
     }
 }
 

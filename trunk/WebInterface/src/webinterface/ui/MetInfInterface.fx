@@ -16,6 +16,9 @@ import javafx.scene.Group;
  */
 public class MetInfInterface extends CustomNode {
 
+    /**
+    * Returns the root of the hierarchy that defines MetInfInterface.
+    */
     protected override function create(): Node {
         Group {
             content: [

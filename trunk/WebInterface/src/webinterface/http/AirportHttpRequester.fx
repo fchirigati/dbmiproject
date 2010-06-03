@@ -8,6 +8,7 @@ package webinterface.http;
 
 import java.io.InputStream;
 import javafx.data.pull.Event;
+import javafx.data.pull.PullParser;
 
 /**
  * The HttpRequester for getting the available airports.
@@ -22,7 +23,8 @@ public class AirportHttpRequester extends HttpRequester {
             AirportParser {
                 input: input
             }
-        result = parser.parse()
+        result = parser.parse();
+        input.close()
     }
 }
 
@@ -36,6 +38,13 @@ protected class AirportParser extends Parser {
     * The function onEvent.
     */
     protected override function onEvent(event: Event) {
-
+        if (event.type == PullParser.END_VALUE) {
+            if (event.level == 0) {
+                var airportResult: String[];
+                insert event.name into airportResult;
+                insert event.text into airportResult;
+                insert airportResult into result;
+            }
+        }
     }
 }
