@@ -23,7 +23,6 @@ import javafx.animation.Timeline;
 import javafx.animation.KeyFrame;
 import webinterface.http.AirportHttpRequester;
 import javafx.util.Sequences;
-import webinterface.http.MeteorologicalInformation;
 import webinterface.http.MetInfHttpRequester;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.Stack;
@@ -45,7 +44,7 @@ public class SearchInterface extends CustomNode {
     /**
     * List of available countries.
     */
-    var countries: Sequence;
+    var countries: Sequence = null;
 
     /**
     * List of countries' codes.
@@ -80,7 +79,12 @@ public class SearchInterface extends CustomNode {
     /**
     * The current meteorological information.
     */
-    var meteorologicalInformation: Object = new MeteorologicalInformation();
+    var meteorologicalInformation: Object = null;
+
+    /**
+    * A boolean to indicate whether the search button was clicked or not.
+    */
+    var searchStatus: Boolean = false;
 
     /**
     * The ComboBox for the list of countries.
@@ -115,6 +119,7 @@ public class SearchInterface extends CustomNode {
                 name: "Trebuchet MS"
             }
             action: function() {
+                searchStatus = true;
                 getMeteorologicalInformation()
             }
         }
@@ -153,14 +158,36 @@ public class SearchInterface extends CustomNode {
         }
 
     /**
+    * Returns 'meteorologicalInformation'.
+    */
+    public function getMeteorologicalObject(): Object {
+        return meteorologicalInformation
+    }
+
+    /**
+    * Get method for 'searchStatus'.
+    */
+    public function getSearchStatus(): Boolean {
+        return searchStatus
+    }
+
+    /**
+    * Set method for 'searchStatus'.
+    */
+    public function setSearchStatus(searchStatus: Boolean): Boolean {
+        this.searchStatus = searchStatus
+    }
+
+    /**
     * Gets the countries list through a web service.
     */
-    function getCountriesList() {
+    function getCountriesList(): Void {
         var result: Sequence;
         var countryHttpRequester: CountryHttpRequester =
             CountryHttpRequester {
                 location: "http://localhost:8888/countries"
                 onDone: function() {
+                    countriesComboBox.progressOpacity = 0;
                     result = countryHttpRequester.getResult();
                     var i: Integer = -1;
                     while ( ++i < sizeof result) {
@@ -169,8 +196,7 @@ public class SearchInterface extends CustomNode {
                     }
                 }
             }
-        countryHttpRequester.start();
-        countriesComboBox.progressOpacity = 0
+        countryHttpRequester.start()
     }
 
     /**
@@ -193,7 +219,7 @@ public class SearchInterface extends CustomNode {
     /**
     * Gets the airports list through a web service.
     */
-    function getAirportsList() {
+    function getAirportsList(): Void {
         var selected: Object = countriesComboBox.getSelectedItem();
         if (selected != null) {
             if (selectedCountry != selected) {
@@ -209,6 +235,7 @@ public class SearchInterface extends CustomNode {
                     AirportHttpRequester {
                         location: "http://localhost:8888/countries/{selectedCountryCode}/airports"
                         onDone: function() {
+                            airportsComboBox.progressOpacity = 0;
                             result = airportHttpRequester.getResult();
                             var i: Integer = -1;
                             while ( ++i < sizeof result) {
@@ -217,8 +244,7 @@ public class SearchInterface extends CustomNode {
                             }
                         }
                     }
-                airportHttpRequester.start();
-                airportsComboBox.progressOpacity = 0
+                airportHttpRequester.start()
             }
         }
     }
@@ -226,7 +252,7 @@ public class SearchInterface extends CustomNode {
     /**
     * Gets the meteorological information through a web service.
     */
-    function getMeteorologicalInformation() {
+    function getMeteorologicalInformation(): Void {
         var selected: Object = airportsComboBox.getSelectedItem();
         if (selected != null) {
             if (selectedAirport != selected) {
@@ -286,7 +312,7 @@ protected class ComboBox extends CustomNode {
     /**
     * The opacity of the progress indicator.
     */
-    protected var progressOpacity: Number = 1;
+    protected var progressOpacity: Float = 1.0;
 
     /**
     * The Label of ComboBox.
@@ -348,14 +374,14 @@ protected class ComboBox extends CustomNode {
      /**
      * Gets the index of the current selection of the ListView.
      */
-     public function getSelectedIndex() {
+     public function getSelectedIndex(): Integer {
          listView.selectedIndex
      }
 
      /**
      * Gets the selected item of the ListView.
      */
-     public function getSelectedItem() {
+     public function getSelectedItem(): Object {
          listView.selectedItem
      }
 

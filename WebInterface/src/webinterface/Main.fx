@@ -9,6 +9,7 @@ package webinterface;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import webinterface.ui.MainInterface;
+import javafx.scene.image.Image;
 
 /**
  * The width of the scene.
@@ -25,8 +26,8 @@ var height: Float = 600;
  */
  def main: MainInterface =
     MainInterface {
-        x: 30
-        y: 30
+        x: 50
+        y: 20
     }
 
 /**
@@ -34,6 +35,13 @@ var height: Float = 600;
  */
 Stage {
     title: "DBMI - Dado Bongo Meteorological Information"
+    resizable: false
+    iconified: true
+    icons: [
+        Image {
+            url: "{__DIR__}ui/resources/umbrella.png"
+        }
+    ]
     scene: Scene {
         width: width
         height: height
