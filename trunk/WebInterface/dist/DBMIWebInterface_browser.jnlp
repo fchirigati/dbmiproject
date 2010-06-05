@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="http://localhost:8082/servlet/org.netbeans.modules.javafx.project.JnlpDownloadServlet/C%3A/Users/Fernando+Seabra/Documents/Fernando+Seabra+-+Documentos/UFRJ/Aulas/7%C2%BA+per%C3%ADodo/Sistemas+Distribu%C3%ADdos+-+COS470/Trabalho/WebInterface/dist/" href="DBMIWebInterface_browser.jnlp">
+    <information>
+        <title>DBMIWebInterface</title>
+        <vendor>Fernando Seabra</vendor>
+        <homepage href="http://localhost:8082/servlet/org.netbeans.modules.javafx.project.JnlpDownloadServlet/C%3A/Users/Fernando+Seabra/Documents/Fernando+Seabra+-+Documentos/UFRJ/Aulas/7%C2%BA+per%C3%ADodo/Sistemas+Distribu%C3%ADdos+-+COS470/Trabalho/WebInterface/dist/"/>
+        <description>DBMIWebInterface</description>
+        <offline-allowed/>
+    </information>
+    <resources>
+        <j2se version="1.5+"/>
+        <extension name="JavaFX Runtime" href="http://dl.javafx.com/1.2/javafx-rt.jnlp"/>
+        <jar href="DBMIWebInterface.jar" main="true"/>
+    </resources>
+    <applet-desc name="DBMIWebInterface" main-class="com.sun.javafx.runtime.adapter.Applet" width="200" height="200">
+        <param name="MainJavaFXScript" value="webinterface.Main"/>
+    </applet-desc>
+    <update check="background"/>
+</jnlp>
