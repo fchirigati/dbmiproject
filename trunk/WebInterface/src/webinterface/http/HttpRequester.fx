@@ -59,7 +59,9 @@ protected abstract class HttpRequester {
             }
             onInput: onInput
             onDone: function() {
-                finished = true;
+                if (httpRequest.doneConnect) {
+                    finished = true;
+                }
                 onDone()
             }
         }
