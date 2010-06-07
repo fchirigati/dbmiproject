@@ -1,6 +1,8 @@
 package ftpclient;
 
+import java.io.BufferedReader;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.SocketException;
 import java.util.ArrayList;
@@ -20,6 +22,11 @@ public class FtpMetar {
 	 * This means that those METAR files had time modifications.
 	 */
 	private List<String> downloadAirports = new ArrayList<String>();
+	
+	/**
+	 * List of modification time of each METAR file.
+	 */
+	public static List<String> modificationTimesList = new ArrayList<String>();
 
 	/**
 	 * Ftp client to download the content.
@@ -79,6 +86,9 @@ public class FtpMetar {
 			for (int i = 0; i < airports.size(); i++) {
 				try {
 					downloadAirports.add(airports.get(i));
+					modificationTimes.add(getModificationTime(downloadDir+airports.get(i) + ".TXT"));
+					System.out.println(airports.get(i) + ".txt -> ");
+					System.out.println(getModificationTime(downloadDir+airports.get(i) + ".TXT") + "\n");
 //					modificationTimes.add(ftpClient.getModificationTime(
 //							airports.get(i) + ".TXT"));
 //					System.out.println(airports.get(i) + ".txt -> ");
@@ -89,17 +99,20 @@ public class FtpMetar {
 					e.printStackTrace();
 				}
 			}
+			modificationTimesList = modificationTimes;
 		} else {
 			for (int i = 0; i < airports.size(); i++) {
 				try {
-					String modificationTime = ftpClient.getModificationTime(
-							airports.get(i) + ".TXT");
+//					String modificationTime = ftpClient.getModificationTime(
+//							airports.get(i) + ".TXT");
+					String modificationTime = getModificationTime(downloadDir+airports.get(i) + ".TXT");
 					System.out.println(airports.get(i) + ".txt -> ");
-					System.out.println("Last modification: " + modificationTime +
-							"\n");
-					if (modificationTime != modificationTimes.get(i)) {
+					System.out.println("Last modification: " + modificationTime + "\n");
+					//System.out.println("Last modification (List): " + modificationTimes.get(i));
+					if (modificationTime.compareTo(modificationTimes.get(i))!=0) {
 						downloadAirports.add(airports.get(i));
 						modificationTimes.set(i, modificationTime);
+						System.out.println("File updated");
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -126,6 +139,24 @@ public class FtpMetar {
 			}
 		}
 	}
+	
+	/**
+	 * Returns the modification time from a file.
+	 */
+	private String getModificationTime(String file) throws IOException {
+		try {
+			BufferedReader in = new BufferedReader(new FileReader(file));
+			String content = null;
+			String line;
+	        if ((line = in.readLine()) != null) {
+	        	content = line.toString();
+	        }
+	        return content;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}	
 	
 	/**
 	 * Disconnects from ftp server.

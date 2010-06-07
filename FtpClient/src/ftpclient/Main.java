@@ -18,21 +18,24 @@ public class Main {
 			InterruptedException {
 		List<String> airports = new ArrayList<String>();
 		List<String> modificationTimes = null;
-		String filesDir = "C:/Users/Fernando Seabra/workspace/FtpClient/files/";
+		String filesDir = "E:/Documents/Workspace/DBMI/Files/";
 		
-		AirportsRequester airportsRequester = new AirportsRequester();
-		airports = airportsRequester.getAirports();
-		System.out.println(airports);
+		//AirportsRequester airportsRequester = new AirportsRequester();
+		//airports = airportsRequester.getAirports();
+		//System.out.println(airports);
+		airports.add("SBGL");
+		airports.add("SBGR");
 		
 		while (true) {
 			FtpMetar ftpMetar = new FtpMetar(airports, modificationTimes, filesDir);
+			modificationTimes = FtpMetar.modificationTimesList;
 			//System.out.println(ftpMetar.getDownloadAirports());
 			//System.out.println(modificationTimes);
 			
 			DataSender dataSender = new DataSender(ftpMetar.getDownloadAirports(),
 					filesDir);
 			dataSender.sendData();
-			Thread.sleep(10000);
+			Thread.sleep(10);
 		}
 	}
 
