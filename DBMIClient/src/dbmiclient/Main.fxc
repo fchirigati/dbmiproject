@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model modelID="fxc" modelVersion="40" rootInstance="DesignModel1" version="1">
+    <Instance classID="DesignModel" instanceID="DesignModel1">
+        <List name="stateVariables">
+            <Item value="inst:StateVariableModel1"/>
+        </List>
+        <List name="resources">
+            <Item value="inst:ImageModel1"/>
+            <Item value="inst:FontModel1"/>
+            <Item value="inst:FontModel2"/>
+            <Item value="inst:ColorModel1"/>
+            <Item value="inst:LinearGradientModel1"/>
+        </List>
+        <List name="dataSources"/>
+        <List name="effects"/>
+        <Reference name="scene" value="inst:SceneModel1"/>
+        <Reference name="designWidth" value="flt:800.0"/>
+        <Reference name="designHeight" value="flt:600.0"/>
+        <Reference name="designProfile" value="profile:DESKTOP"/>
+        <Reference name="synchronizeDeviceAndSceneSizes" value="bool:true"/>
+    </Instance>
+    <Instance classID="StateVariableModel" instanceID="StateVariableModel1">
+        <Reference name="instanceName" value="str:currentState"/>
+        <List name="states"/>
+        <Reference name="startState" value="null"/>
+        <Reference name="stateChangeType" value="statechange:PAUSE_AND_PLAY_FROM_START"/>
+        <Reference name="defaultInterpolator" value="interpolator:DISCRETE"/>
+        <Reference name="defaultDuration" value="int:0"/>
+    </Instance>
+    <Instance classID="ImageModel" instanceID="ImageModel1">
+        <Reference name="instanceName" value="str:image"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="url" value="prop:38,anim:,,str:{__DIR__}resources/DBMI.bmp,"/>
+    </Instance>
+    <Instance classID="FontModel" instanceID="FontModel1">
+        <Reference name="instanceName" value="str:font"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="name" value="prop:28,anim:,,str:Trebuchet MS bold,"/>
+        <Reference name="size" value="prop:15,anim:,,flt:14.0,"/>
+    </Instance>
+    <Instance classID="FontModel" instanceID="FontModel2">
+        <Reference name="instanceName" value="str:font2"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="name" value="prop:23,anim:,,str:Trebuchet MS,"/>
+        <Reference name="size" value="prop:15,anim:,,flt:13.0,"/>
+    </Instance>
+    <Instance classID="ColorModel" instanceID="ColorModel1">
+        <Reference name="instanceName" value="str:color"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="green" value="prop:15,anim:,,flt:0.57,"/>
+        <Reference name="blue" value="prop:14,anim:,,flt:1.0,"/>
+    </Instance>
+    <Instance classID="LinearGradientModel" instanceID="LinearGradientModel1">
+        <Reference name="instanceName" value="str:linearGradient"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="endX" value="prop:14,anim:,,flt:0.0,"/>
+        <Reference name="endY" value="prop:14,anim:,,flt:1.0,"/>
+        <Reference name="stops" value="prop:97,anim:,,sequence:24,gradientstop:0.0,#FFFFFF24,gradientstop:0.2,#FFFFFF24,gradientstop:1.0,#A4B8D0,"/>
+    </Instance>
+    <Instance classID="SceneModel" instanceID="SceneModel1">
+        <Reference name="instanceName" value="str:scene"/>
+        <List name="nodes">
+            <Item value="inst:RectangleShapeModel1"/>
+            <Item value="inst:VBoxModel1"/>
+        </List>
+        <Reference name="width" value="prop:16,anim:,,flt:800.0,"/>
+        <Reference name="height" value="prop:16,anim:,,flt:700.0,"/>
+        <Reference name="generateSceneInstance" value="bool:true"/>
+        <Reference name="generateScenePanel" value="bool:true"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="preInitCode" value="null"/>
+        <Reference name="postInitCode" value="null"/>
+    </Instance>
+    <Instance classID="RectangleShapeModel" instanceID="RectangleShapeModel1">
+        <Reference name="instanceName" value="str:rectangle2"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="fill" value="prop:32,anim:,,inst:LinearGradientModel1,4,null,"/>
+        <Reference name="width" value="prop:16,anim:,,flt:800.0,4,null,"/>
+        <Reference name="height" value="prop:16,anim:,,flt:700.0,4,null,"/>
+    </Instance>
+    <Instance classID="VBoxModel" instanceID="VBoxModel1">
+        <Reference name="instanceName" value="str:vbox"/>
+        <Reference name="translateY" value="prop:15,anim:,,flt:20.0,4,null,"/>
+        <Reference name="layoutX" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="layoutY" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:800.0,4,null,"/>
+        <Reference name="layoutInfoHeight" value="prop:16,anim:,,flt:550.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:ImageViewModel1"/>
+            <Item value="inst:HBoxModel1"/>
+            <Item value="inst:HBoxModel2"/>
+            <Item value="inst:RectangleShapeModel2"/>
+            <Item value="inst:HBoxModel3"/>
+            <Item value="inst:HBoxModel4"/>
+            <Item value="inst:HBoxModel5"/>
+        </List>
+        <Reference name="nodeHPos" value="prop:18,anim:,,hpos:CENTER,4,null,"/>
+        <Reference name="spacing" value="prop:15,anim:,,flt:20.0,4,null,"/>
+    </Instance>
+    <Instance classID="ImageViewModel" instanceID="ImageViewModel1">
+        <Reference name="instanceName" value="str:imageView"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="fitWidth" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="fitHeight" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="image" value="prop:23,anim:,,inst:ImageModel1,4,null,"/>
+        <Reference name="preserveRatio" value="prop:17,anim:,,bool:false,4,null,"/>
+    </Instance>
+    <Instance classID="HBoxModel" instanceID="HBoxModel1">
+        <Reference name="instanceName" value="str:hbox"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:800.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:LabelModel1"/>
+            <Item value="inst:TextBoxModel1"/>
+            <Item value="inst:ButtonModel1"/>
+        </List>
+        <Reference name="hpos" value="prop:18,anim:,,hpos:CENTER,4,null,"/>
+        <Reference name="nodeVPos" value="prop:18,anim:,,vpos:CENTER,4,null,"/>
+        <Reference name="spacing" value="prop:15,anim:,,flt:15.0,4,null,"/>
+    </Instance>
+    <Instance classID="LabelModel" instanceID="LabelModel1">
+        <Reference name="instanceName" value="str:label"/>
+        <Reference name="effect" value="prop:11,anim:,,null,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:14,anim:,,str:URI,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel1,4,null,"/>
+    </Instance>
+    <Instance classID="TextBoxModel" instanceID="TextBoxModel1">
+        <Reference name="instanceName" value="str:textbox"/>
+        <Reference name="layoutX" value="prop:16,anim:,,flt:229.0,4,null,"/>
+        <Reference name="layoutY" value="prop:16,anim:,,flt:200.0,4,null,"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:301.0,4,null,"/>
+        <Reference name="layoutInfoHeight" value="prop:15,anim:,,flt:24.0,4,null,"/>
+        <Reference name="effect" value="prop:11,anim:,,null,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="selectOnFocus" value="prop:16,anim:,,bool:true,4,null,"/>
+        <Reference name="text" value="prop:40,anim:,,str:http://dbmiserver.appspot.com,4,null,"/>
+        <Reference name="action" value="prop:24,anim:,,str:textboxAction,4,null,"/>
+    </Instance>
+    <Instance classID="ButtonModel" instanceID="ButtonModel1">
+        <Reference name="instanceName" value="str:button"/>
+        <Reference name="layoutInfoWidth" value="prop:15,anim:,,flt:45.0,4,null,"/>
+        <Reference name="layoutInfoHeight" value="prop:15,anim:,,flt:27.0,4,null,"/>
+        <Reference name="effect" value="prop:11,anim:,,null,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:14,anim:,,str:Go!,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel2,4,null,"/>
+        <Reference name="action" value="prop:23,anim:,,str:buttonAction,4,null,"/>
+    </Instance>
+    <Instance classID="HBoxModel" instanceID="HBoxModel2">
+        <Reference name="instanceName" value="str:hbox2"/>
+        <Reference name="layoutX" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="layoutY" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:VBoxModel2"/>
+            <Item value="inst:VBoxModel3"/>
+            <Item value="inst:ButtonModel2"/>
+        </List>
+        <Reference name="hpos" value="prop:18,anim:,,hpos:CENTER,4,null,"/>
+        <Reference name="vpos" value="prop:18,anim:,,vpos:CENTER,4,null,"/>
+        <Reference name="nodeVPos" value="prop:18,anim:,,vpos:CENTER,4,null,"/>
+        <Reference name="spacing" value="prop:15,anim:,,flt:20.0,4,null,"/>
+    </Instance>
+    <Instance classID="VBoxModel" instanceID="VBoxModel2">
+        <Reference name="instanceName" value="str:vbox2"/>
+        <Reference name="layoutX" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:LabelModel2"/>
+            <Item value="inst:StackModel1"/>
+        </List>
+        <Reference name="spacing" value="prop:14,anim:,,flt:6.0,4,null,"/>
+    </Instance>
+    <Instance classID="LabelModel" instanceID="LabelModel2">
+        <Reference name="instanceName" value="str:label2"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:17,anim:,,str:Países,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel1,4,null,"/>
+    </Instance>
+    <Instance classID="StackModel" instanceID="StackModel1">
+        <Reference name="instanceName" value="str:stack"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:ListViewModel1"/>
+            <Item value="inst:ProgressIndicatorModel1"/>
+        </List>
+    </Instance>
+    <Instance classID="ListViewModel" instanceID="ListViewModel1">
+        <Reference name="instanceName" value="str:listView"/>
+        <Reference name="cursor" value="prop:21,anim:,,cursor:DEFAULT,4,null,"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:280.0,4,null,"/>
+        <Reference name="layoutInfoHeight" value="prop:16,anim:,,flt:128.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="items" value="prop:bind:bind countries"/>
+    </Instance>
+    <Instance classID="ProgressIndicatorModel" instanceID="ProgressIndicatorModel1">
+        <Reference name="instanceName" value="str:progressIndicator"/>
+        <Reference name="opacity" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="cursor" value="prop:18,anim:,,cursor:WAIT,4,null,"/>
+        <Reference name="effect" value="prop:11,anim:,,null,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+    </Instance>
+    <Instance classID="VBoxModel" instanceID="VBoxModel3">
+        <Reference name="instanceName" value="str:vbox3"/>
+        <Reference name="layoutX" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:LabelModel3"/>
+            <Item value="inst:StackModel2"/>
+        </List>
+        <Reference name="spacing" value="prop:14,anim:,,flt:6.0,4,null,"/>
+    </Instance>
+    <Instance classID="LabelModel" instanceID="LabelModel3">
+        <Reference name="instanceName" value="str:label3"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:21,anim:,,str:Aeroportos,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel1,4,null,"/>
+    </Instance>
+    <Instance classID="StackModel" instanceID="StackModel2">
+        <Reference name="instanceName" value="str:stack2"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:ListViewModel2"/>
+            <Item value="inst:ProgressIndicatorModel2"/>
+        </List>
+    </Instance>
+    <Instance classID="ListViewModel" instanceID="ListViewModel2">
+        <Reference name="instanceName" value="str:listView2"/>
+        <Reference name="cursor" value="prop:21,anim:,,cursor:DEFAULT,4,null,"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:280.0,4,null,"/>
+        <Reference name="layoutInfoHeight" value="prop:16,anim:,,flt:128.0,4,null,"/>
+        <Reference name="onKeyPressed" value="prop:32,anim:,,str:listView2OnKeyPressed,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="items" value="prop:bind:bind airports"/>
+    </Instance>
+    <Instance classID="ProgressIndicatorModel" instanceID="ProgressIndicatorModel2">
+        <Reference name="instanceName" value="str:progressIndicator2"/>
+        <Reference name="opacity" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="cursor" value="prop:18,anim:,,cursor:WAIT,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+    </Instance>
+    <Instance classID="ButtonModel" instanceID="ButtonModel2">
+        <Reference name="instanceName" value="str:button2"/>
+        <Reference name="layoutInfoWidth" value="prop:15,anim:,,flt:78.0,4,null,"/>
+        <Reference name="layoutInfoHeight" value="prop:15,anim:,,flt:29.0,4,null,"/>
+        <Reference name="effect" value="prop:11,anim:,,null,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:20,anim:,,str:Pesquisar,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel2,4,null,"/>
+        <Reference name="action" value="prop:39,anim:,,str:getMeteorologicalInformation,4,null,"/>
+    </Instance>
+    <Instance classID="RectangleShapeModel" instanceID="RectangleShapeModel2">
+        <Reference name="instanceName" value="str:rectangle"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="fill" value="prop:23,anim:,,inst:ColorModel1,4,null,"/>
+        <Reference name="width" value="prop:16,anim:,,flt:700.0,4,null,"/>
+        <Reference name="height" value="prop:14,anim:,,flt:2.0,4,null,"/>
+    </Instance>
+    <Instance classID="HBoxModel" instanceID="HBoxModel3">
+        <Reference name="instanceName" value="str:hbox3"/>
+        <Reference name="layoutX" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:VBoxModel4"/>
+            <Item value="inst:VBoxModel5"/>
+            <Item value="inst:VBoxModel6"/>
+        </List>
+        <Reference name="spacing" value="prop:15,anim:,,flt:10.0,4,null,"/>
+    </Instance>
+    <Instance classID="VBoxModel" instanceID="VBoxModel4">
+        <Reference name="instanceName" value="str:vbox4"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:LabelModel4"/>
+            <Item value="inst:TextBoxModel2"/>
+        </List>
+        <Reference name="spacing" value="prop:14,anim:,,flt:6.0,4,null,"/>
+    </Instance>
+    <Instance classID="LabelModel" instanceID="LabelModel4">
+        <Reference name="instanceName" value="str:label4"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:15,anim:,,str:Data,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel1,4,null,"/>
+    </Instance>
+    <Instance classID="TextBoxModel" instanceID="TextBoxModel2">
+        <Reference name="instanceName" value="str:textbox2"/>
+        <Reference name="layoutX" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:200.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="editable" value="prop:17,anim:,,bool:false,4,null,"/>
+    </Instance>
+    <Instance classID="VBoxModel" instanceID="VBoxModel5">
+        <Reference name="instanceName" value="str:vbox5"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:LabelModel5"/>
+            <Item value="inst:TextBoxModel3"/>
+        </List>
+        <Reference name="spacing" value="prop:14,anim:,,flt:6.0,4,null,"/>
+    </Instance>
+    <Instance classID="LabelModel" instanceID="LabelModel5">
+        <Reference name="instanceName" value="str:label5"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:15,anim:,,str:Hora,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel1,4,null,"/>
+    </Instance>
+    <Instance classID="TextBoxModel" instanceID="TextBoxModel3">
+        <Reference name="instanceName" value="str:textbox3"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:200.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="editable" value="prop:17,anim:,,bool:false,4,null,"/>
+    </Instance>
+    <Instance classID="VBoxModel" instanceID="VBoxModel6">
+        <Reference name="instanceName" value="str:vbox6"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:LabelModel6"/>
+            <Item value="inst:TextBoxModel4"/>
+        </List>
+        <Reference name="spacing" value="prop:14,anim:,,flt:6.0,4,null,"/>
+    </Instance>
+    <Instance classID="LabelModel" instanceID="LabelModel6">
+        <Reference name="instanceName" value="str:label6"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:22,anim:,,str:Temperatura,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel1,4,null,"/>
+    </Instance>
+    <Instance classID="TextBoxModel" instanceID="TextBoxModel4">
+        <Reference name="instanceName" value="str:textbox4"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:200.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="editable" value="prop:17,anim:,,bool:false,4,null,"/>
+    </Instance>
+    <Instance classID="HBoxModel" instanceID="HBoxModel4">
+        <Reference name="instanceName" value="str:hbox4"/>
+        <Reference name="layoutX" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:VBoxModel7"/>
+            <Item value="inst:VBoxModel8"/>
+            <Item value="inst:VBoxModel9"/>
+        </List>
+        <Reference name="spacing" value="prop:15,anim:,,flt:10.0,4,null,"/>
+    </Instance>
+    <Instance classID="VBoxModel" instanceID="VBoxModel7">
+        <Reference name="instanceName" value="str:vbox7"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:LabelModel7"/>
+            <Item value="inst:TextBoxModel5"/>
+        </List>
+        <Reference name="spacing" value="prop:14,anim:,,flt:6.0,4,null,"/>
+    </Instance>
+    <Instance classID="LabelModel" instanceID="LabelModel7">
+        <Reference name="instanceName" value="str:label7"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:27,anim:,,str:Ponto de Orvalho,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel1,4,null,"/>
+    </Instance>
+    <Instance classID="TextBoxModel" instanceID="TextBoxModel5">
+        <Reference name="instanceName" value="str:textbox5"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:200.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="editable" value="prop:17,anim:,,bool:false,4,null,"/>
+    </Instance>
+    <Instance classID="VBoxModel" instanceID="VBoxModel8">
+        <Reference name="instanceName" value="str:vbox8"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:LabelModel8"/>
+            <Item value="inst:TextBoxModel6"/>
+        </List>
+        <Reference name="spacing" value="prop:14,anim:,,flt:6.0,4,null,"/>
+    </Instance>
+    <Instance classID="LabelModel" instanceID="LabelModel8">
+        <Reference name="instanceName" value="str:label8"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:28,anim:,,str:Condição do Tempo,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel1,4,null,"/>
+    </Instance>
+    <Instance classID="TextBoxModel" instanceID="TextBoxModel6">
+        <Reference name="instanceName" value="str:textbox6"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:200.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="editable" value="prop:17,anim:,,bool:false,4,null,"/>
+    </Instance>
+    <Instance classID="VBoxModel" instanceID="VBoxModel9">
+        <Reference name="instanceName" value="str:vbox9"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:LabelModel9"/>
+            <Item value="inst:TextBoxModel7"/>
+        </List>
+        <Reference name="spacing" value="prop:14,anim:,,flt:6.0,4,null,"/>
+    </Instance>
+    <Instance classID="LabelModel" instanceID="LabelModel9">
+        <Reference name="instanceName" value="str:label9"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:30,anim:,,str:Pressão Barométrica,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel1,4,null,"/>
+    </Instance>
+    <Instance classID="TextBoxModel" instanceID="TextBoxModel7">
+        <Reference name="instanceName" value="str:textbox7"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:200.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="editable" value="prop:17,anim:,,bool:false,4,null,"/>
+    </Instance>
+    <Instance classID="HBoxModel" instanceID="HBoxModel5">
+        <Reference name="instanceName" value="str:hbox5"/>
+        <Reference name="layoutX" value="prop:14,anim:,,flt:0.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:VBoxModel10"/>
+            <Item value="inst:VBoxModel11"/>
+        </List>
+        <Reference name="spacing" value="prop:15,anim:,,flt:10.0,4,null,"/>
+    </Instance>
+    <Instance classID="VBoxModel" instanceID="VBoxModel10">
+        <Reference name="instanceName" value="str:vbox10"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:LabelModel10"/>
+            <Item value="inst:ListViewModel3"/>
+        </List>
+        <Reference name="spacing" value="prop:14,anim:,,flt:6.0,4,null,"/>
+    </Instance>
+    <Instance classID="LabelModel" instanceID="LabelModel10">
+        <Reference name="instanceName" value="str:label10"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:17,anim:,,str:Nuvens,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel1,4,null,"/>
+    </Instance>
+    <Instance classID="ListViewModel" instanceID="ListViewModel3">
+        <Reference name="instanceName" value="str:listView3"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:260.0,4,null,"/>
+        <Reference name="layoutInfoHeight" value="prop:16,anim:,,flt:110.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+    </Instance>
+    <Instance classID="VBoxModel" instanceID="VBoxModel11">
+        <Reference name="instanceName" value="str:vbox11"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <List name="content">
+            <Item value="inst:LabelModel11"/>
+            <Item value="inst:ListViewModel4"/>
+        </List>
+        <Reference name="spacing" value="prop:14,anim:,,flt:6.0,4,null,"/>
+    </Instance>
+    <Instance classID="LabelModel" instanceID="LabelModel11">
+        <Reference name="instanceName" value="str:label11"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+        <Reference name="graphicNode" value="null"/>
+        <Reference name="text" value="prop:16,anim:,,str:Vento,4,null,"/>
+        <Reference name="font" value="prop:22,anim:,,inst:FontModel1,4,null,"/>
+    </Instance>
+    <Instance classID="ListViewModel" instanceID="ListViewModel4">
+        <Reference name="instanceName" value="str:listView4"/>
+        <Reference name="layoutInfoWidth" value="prop:16,anim:,,flt:260.0,4,null,"/>
+        <Reference name="layoutInfoHeight" value="prop:16,anim:,,flt:110.0,4,null,"/>
+        <Reference name="preCreationCode" value="null"/>
+        <Reference name="postCreationCode" value="null"/>
+    </Instance>
+</Model>
