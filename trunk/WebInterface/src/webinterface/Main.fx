@@ -26,7 +26,7 @@ var height: Float = 600;
  */
  def main: MainInterface =
     MainInterface {
-        x: 50
+        x: 40
         y: 20
     }
 
@@ -36,12 +36,6 @@ var height: Float = 600;
 Stage {
     title: "DBMI - Dado Bongo Meteorological Information"
     resizable: false
-    iconified: true
-    icons: [
-        Image {
-            url: "{__DIR__}ui/resources/umbrella.png"
-        }
-    ]
     scene: Scene {
         width: width
         height: height
@@ -49,4 +43,10 @@ Stage {
             main
         ]
     }
+    /*iconified: true
+    icons: [
+        Image {
+            url: "{__DIR__}ui/resources/umbrella.png"
+        }
+    ]*/
 }

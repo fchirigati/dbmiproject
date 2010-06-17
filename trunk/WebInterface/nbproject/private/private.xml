@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/C:/Users/Fernando%20Seabra/Documents/Fernando%20Seabra%20-%20Documentos/UFRJ/Aulas/7º%20período/Sistemas%20Distribuídos%20-%20COS470/Trabalho/WebInterface/src/webinterface/Main.fx</file>
+        <file>file:/C:/Users/Fernando%20Seabra/Documents/Fernando%20Seabra%20-%20Documentos/UFRJ/Aulas/7º%20período/Sistemas%20Distribuídos%20-%20COS470/Trabalho/WebInterface/src/webinterface/ui/MainInterface.fx</file>
+        <file>file:/C:/Users/Fernando%20Seabra/Documents/Fernando%20Seabra%20-%20Documentos/UFRJ/Aulas/7º%20período/Sistemas%20Distribuídos%20-%20COS470/Trabalho/WebInterface/src/webinterface/ui/SearchInterface.fx</file>
+        <file>file:/C:/Users/Fernando%20Seabra/Documents/Fernando%20Seabra%20-%20Documentos/UFRJ/Aulas/7º%20período/Sistemas%20Distribuídos%20-%20COS470/Trabalho/WebInterface/src/webinterface/ui/MetInfInterface.fx</file>
+        <file>file:/C:/Users/Fernando%20Seabra/Documents/Fernando%20Seabra%20-%20Documentos/UFRJ/Aulas/7º%20período/Sistemas%20Distribuídos%20-%20COS470/Trabalho/WebInterface/src/webinterface/http/HttpRequester.fx</file>
+        <file>file:/C:/Users/Fernando%20Seabra/Documents/Fernando%20Seabra%20-%20Documentos/UFRJ/Aulas/7º%20período/Sistemas%20Distribuídos%20-%20COS470/Trabalho/WebInterface/src/webinterface/http/Parser.fx</file>
+        <file>file:/C:/Users/Fernando%20Seabra/Documents/Fernando%20Seabra%20-%20Documentos/UFRJ/Aulas/7º%20período/Sistemas%20Distribuídos%20-%20COS470/Trabalho/WebInterface/src/webinterface/http/CountryHttpRequester.fx</file>
+        <file>file:/C:/Users/Fernando%20Seabra/Documents/Fernando%20Seabra%20-%20Documentos/UFRJ/Aulas/7º%20período/Sistemas%20Distribuídos%20-%20COS470/Trabalho/WebInterface/src/webinterface/http/MetInfHttpRequester.fx</file>
+        <file>file:/C:/Users/Fernando%20Seabra/Documents/Fernando%20Seabra%20-%20Documentos/UFRJ/Aulas/7º%20período/Sistemas%20Distribuídos%20-%20COS470/Trabalho/WebInterface/src/webinterface/http/MeteorologicalInformation.fx</file>
+    </open-files>
 </project-private>

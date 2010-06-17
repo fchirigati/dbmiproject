@@ -15,6 +15,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.animation.Timeline;
 import javafx.animation.KeyFrame;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.Color;
+import javafx.scene.effect.Reflection;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.VBox;
 
 /**
  * This class defines the main interface of DBMIWebInterface.
@@ -45,8 +50,7 @@ public class MainInterface extends CustomNode {
     /**
     * The meteorological information coming from searchInterface.
     */
-    var meteorologicalInformation: Object =
-        bind searchInterface.getMeteorologicalObject();
+    var meteorologicalInformation: Object;
 
     /**
     * The current meteorological information.
@@ -85,19 +89,28 @@ public class MainInterface extends CustomNode {
         MetInfInterface {}
 
     /**
+    * A separator.
+    */
+    def separator: Rectangle =
+        Rectangle {
+            width: 700
+            height: 2
+            fill: Color.web("#10459B")
+        }
+
+    /**
     * The flow of interfaces.
     */
-    def flow: Flow =
-        Flow {
+    def flow: VBox =
+        VBox {
             translateX: x
             translateY: y
-            vertical: true
-            vgap: 20
+            spacing: 15
             nodeHPos: HPos.CENTER
-            nodeVPos: VPos.CENTER
             content: [
                 logoImageView,
                 searchInterface,
+                separator,
                 metInfInterface
             ]
         }
@@ -123,13 +136,15 @@ public class MainInterface extends CustomNode {
     * Prepares the meteorological information interface.
     */
     function prepareMetInfInterface(): Void {
-        if ((searchInterface.getSearchStatus()) and
-                (currentMeteorologicalInformation != meteorologicalInformation)) {
-            searchInterface.setSearchStatus(false);
-            currentMeteorologicalInformation = meteorologicalInformation;
-            metInfInterface.meteorologicalInformation =
-                currentMeteorologicalInformation;
-            metInfInterface.prepareInterface()
+        if (searchInterface.getSearchStatus()) {
+            meteorologicalInformation = searchInterface.getMeteorologicalObject();
+            if (currentMeteorologicalInformation != meteorologicalInformation) {
+                searchInterface.setSearchStatus(false);
+                currentMeteorologicalInformation = meteorologicalInformation;
+                metInfInterface.meteorologicalInformation =
+                    currentMeteorologicalInformation;
+                metInfInterface.prepareInterface()
+            }
         }
     }
 
