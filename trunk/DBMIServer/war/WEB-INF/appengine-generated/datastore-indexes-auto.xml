@@ -1,0 +1,10 @@
+<!-- Indices written at Thu, 17 Jun 2010 12:27:15 UTC -->
+
+<datastore-indexes>
+
+    <!-- Used 3 times in query history -->
+    <datastore-index kind="Airport" ancestor="true" source="auto">
+        <property name="airports_INTEGER_IDX" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>
