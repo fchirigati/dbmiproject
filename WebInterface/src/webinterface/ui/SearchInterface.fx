@@ -27,6 +27,7 @@ import webinterface.http.MetInfHttpRequester;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.Stack;
 import javafx.scene.paint.Color;
+import javafx.scene.effect.Reflection;
 
 /**
  * This class implements the interface for searching the airport.
@@ -92,7 +93,7 @@ public class SearchInterface extends CustomNode {
     def countriesComboBox: ComboBox =
         ComboBox {
             width: 300
-            height: 116
+            height: 224
             text: "Países"
             items: bind countries
         }
@@ -103,7 +104,7 @@ public class SearchInterface extends CustomNode {
     def airportsComboBox: ComboBox =
         ComboBox {
             width: 300
-            height: 116
+            height: 224
             text: "Aeroportos"
             items: bind airports
             progressOpacity: 0
@@ -117,6 +118,12 @@ public class SearchInterface extends CustomNode {
             text: "Pesquisar"
             font: Font {
                 name: "Trebuchet MS"
+            }
+            effect: Reflection {
+                fraction: 0.75
+                topOffset: 0.4
+                topOpacity: 0.5
+                bottomOpacity: 0.0
             }
             action: function() {
                 searchStatus = true;
@@ -322,7 +329,7 @@ protected class ComboBox extends CustomNode {
             text: text
             font: Font {
                 name: "Trebuchet MS bold"
-                size: 14
+                size: 16
             }
             textFill: Color.web("#0093FF")
         }

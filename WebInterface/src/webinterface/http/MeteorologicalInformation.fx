@@ -14,15 +14,10 @@ package webinterface.http;
 public class MeteorologicalInformation {
 
     /**
-    * The code ICAO of the airport.
-    */
-    var airport: String;
-
-    /**
     * The date of the observation.
     * It must be in the format DD-MM-YYYY. Ex: 05-05-2010.
     */
-    var date: String;
+    var day: String;
 
     /**
     * The hour of the observation.
@@ -31,35 +26,47 @@ public class MeteorologicalInformation {
     var hour: String;
 
     /**
-    * 
+    * Temperature.
     */
+    var temperature: String;
 
     /**
-    * Sets the parameter airport.
+    * Dew point.
     */
-    public function setAirport(airport: String) {
-        this.airport = airport
-    }
+    var dewPoint: String;
 
     /**
-    * Gets the value of the parameter airport.
+    * Weather condition.
     */
-    public function getAirport() {
-        airport
-    }
+    var weatherCondition: String;
+
+    /**
+    * Pressure.
+    */
+    var pressure: String;
+
+    /**
+    * Cloud layers.
+    */
+    var cloudLayers: String[];
+
+    /**
+    * Wind data.
+    */
+    var windData: String[];
 
     /**
     * Sets the parameter date.
     */
-    public function setDate(date: String) {
-        this.date = date
+    public function setDay(day: String) {
+        this.day = day
     }
 
     /**
     * Gets the value of the parameter date.
     */
-    public function getDate() {
-        date
+    public function getDay() {
+        day
     }
 
     /**
@@ -74,5 +81,53 @@ public class MeteorologicalInformation {
     */
     public function getHour() {
         hour
+    }
+
+    public function setTemperature(temperature: String) {
+        this.temperature = temperature
+    }
+
+    public function getTemperature() {
+        temperature
+    }
+
+    public function setDewPoint(dewPoint: String) {
+        this.dewPoint = dewPoint
+    }
+
+    public function getDewPoint() {
+        dewPoint
+    }
+
+    public function setWeatherCondition(weatherCondition: String) {
+        this.weatherCondition = weatherCondition
+    }
+
+    public function getWeatherCondition() {
+        weatherCondition
+    }
+
+    public function setPressure(pressure: String) {
+        this.pressure = pressure
+    }
+
+    public function getPressure() {
+        pressure
+    }
+
+    public function addCloudLayer(cloudLayer: String) {
+        insert cloudLayer into cloudLayers
+    }
+
+    public function getCloudLayers() {
+        cloudLayers
+    }
+
+    public function addWindData(windData: String) {
+        insert windData into this.windData
+    }
+
+    public function getWindData() {
+        windData
     }
 }
